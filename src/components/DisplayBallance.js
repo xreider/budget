@@ -6,7 +6,7 @@ function DisplayBallance(props) {
   return (
     <Statistic size={size} color={color}>
       <Statistic.Label>{label}</Statistic.Label>
-      <Statistic.Value>{value}</Statistic.Value>
+      <Statistic.Value>{value} $</Statistic.Value>
     </Statistic>
   )
 }
