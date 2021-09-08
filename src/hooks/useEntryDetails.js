@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addEntryRedux, updateEntryRedux } from '../actions/entries.actions'
 import { v4 as uuidv4 } from 'uuid'
+import { closeEditModal } from '../actions/modals.actions'
 
 function useEntryDetails(desc = '', val = '', isExp = true) {
   const [description, setDescription] = useState(desc)
@@ -24,6 +25,9 @@ function useEntryDetails(desc = '', val = '', isExp = true) {
         isExpense,
       })
     )
+    dispatch(closeEditModal())
+
+ resetEntry()
   }
 
   function addEntry() {
@@ -42,6 +46,9 @@ function useEntryDetails(desc = '', val = '', isExp = true) {
     setValue('')
     setIsExpense(true)
   }
+
+
+
   return {
     description,
     setDescription,

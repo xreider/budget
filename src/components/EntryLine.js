@@ -1,14 +1,15 @@
-import React from 'react'
-import { Grid, Icon, Segment } from 'semantic-ui-react'
-import { useDispatch } from 'react-redux'
-import { removeEntryRedux } from '../actions/entries.actions'
-import { openEditModal } from '../actions/modals.actions'
+import React from 'react';
+import { Grid, Icon, Segment } from 'semantic-ui-react';
+import { useDispatch } from 'react-redux';
+import { removeEntryRedux } from '../actions/entries.actions';
+import { openEditModal } from '../actions/modals.actions';
 
 function EntryLine(props) {
   const {
     entry: { id, description, value, isExpense = false },
-  } = props
-  const dispatch = useDispatch()
+  } = props;
+  const dispatch = useDispatch();
+  dispatch({ type: 'TEST_MESSAGE' });
   return (
     <>
       <Segment color={isExpense ? 'red' : 'green'}>
@@ -30,7 +31,7 @@ function EntryLine(props) {
                 name="trash"
                 bordered
                 onClick={() => {
-                  dispatch(removeEntryRedux(id))
+                  dispatch(removeEntryRedux(id));
                 }}
               />
             </Grid.Column>
@@ -38,7 +39,7 @@ function EntryLine(props) {
         </Grid>
       </Segment>
     </>
-  )
+  );
 }
 
-export default EntryLine
+export default EntryLine;
